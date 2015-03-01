@@ -5,9 +5,27 @@ import java.math.*;
 import java.util.regex.*;
 
 public class Solution {
+	
+	private static void print(String[][] map) {
+		// TODO Auto-generated method stub
+		for (int i = 0; i < map.length; i++) {
+			for (int j = 0; j < map.length; j++) {
+				System.out.print(map[i][j]);
+			}
+			System.out.println();
+		}
+
+	}
 
 	private static void solve(String[][] map) {
-		// System.out.println(line.split(" ")[1]);
+		
+		String[][] solved = new String[map.length][map.length];
+		for (int i = 0; i < map.length; i++) {
+			for (int j = 0; j < map.length; j++) {
+				String s = new String(map[i][j]);
+				solved[i][j] = s;
+			}
+		}
 
 		for (int i = 0; i < map.length; i++) {
 			for (int j = 0; j < map.length; j++) {
@@ -15,11 +33,6 @@ public class Solution {
 
 				if (i + 1 >= map.length || i - 1 < 0 || j + 1 >= map.length
 						|| j - 1 < 0) {
-					continue;
-				}
-				else if (map[i - 1][j].equals("X") || map[i + 1][j].equals("X")
-						|| map[i][j - 1].equals("X")
-						|| map[i][j + 1].equals("X")) {
 					continue;
 				}
 				int up = Integer.parseInt(map[i - 1][j]);
@@ -33,11 +46,13 @@ public class Solution {
 				 */
 				if (current > up && current > down && current > left
 						&& current > right) {
-					map[i][j] = "X";
+					solved[i][j] = "X";
 				}
 
 			}
 		}
+
+		print(solved);
 	}
 
 	public static void main(String[] args) {
@@ -69,19 +84,9 @@ public class Solution {
 			row++;
 		}
 		solve(map);
-		print(map);
 
 		in.close();
 	}
 
-	private static void print(String[][] map) {
-		// TODO Auto-generated method stub
-		for (int i = 0; i < map.length; i++) {
-			for (int j = 0; j < map.length; j++) {
-				System.out.print(map[i][j]);
-			}
-			System.out.println();
-		}
 
-	}
 }
