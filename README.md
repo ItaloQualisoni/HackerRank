@@ -1,5 +1,6 @@
 # Objective
 Fulfill this project with possible solutions for HackerRank problems, doing a organized library where new people use as guide to help them developing its solution.
+To learn about HackerRank you can use their plattaform : https://www.hackerrank.com/
 
 #Goal
 Do 3~5 challenge peer week starting with the easiest and going to the hardest
